@@ -1,0 +1,10 @@
+<h1>New</h1>
+  <%= form_with model: @task, url: tasks_path, method: :post do |f| %>
+    <p>
+      <%= f.label :title %></br>
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.submit "新規作成" %>
+    </p>
+  <% end %>
