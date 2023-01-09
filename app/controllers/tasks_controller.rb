@@ -4,13 +4,16 @@ class TasksController < ApplicationController
   end
 
   def new
-    @tasks=Task.new
+    @task=Task.new
   end
 
   def create
     @task=Task.new(task_params)
-    @task.save
-    redirect_to root_path
+    if @task.save
+      redirect_to root_path
+    else
+      render 'new' #status: :unprocessable_entity#(バリデーションエラー時に返すステータスコード（４２２）にレンダリングする)
+    end
   end
 
   private
