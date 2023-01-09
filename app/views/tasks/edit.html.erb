@@ -1,0 +1,17 @@
+<h1>Edit</h1>
+  <%= form_with model: @task, url: task_path(@task), method: :patch do |f| %>
+    <p>
+      <%= f.label :title %></br>
+      <%= f.text_field :title %>
+      <% if @task.errors.any? %>
+        <%= @task.errors.messages[:title][0] %>
+        <%#= @task.errors.count %>
+          <%# @task.erros.full_message.each do |message| %>
+            <%#= message %>
+          <%# end %>
+      <% end %>
+    </p>
+    <p>
+      <%= f.submit "編集内容を保存" %>
+    </p>
+  <% end %>

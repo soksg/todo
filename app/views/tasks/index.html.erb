@@ -5,6 +5,7 @@
     <li>
       <%= check_box_tag '', '' %>
       <%= task.title %>
+      <%= link_to "[編集]", edit_task_path(task) %>
     </li>
   <% end %>
 </ul>

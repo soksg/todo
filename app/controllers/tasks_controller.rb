@@ -12,7 +12,20 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to root_path
     else
-      render 'new' #status: :unprocessable_entity#(バリデーションエラー時に返すステータスコード（４２２）にレンダリングする)
+      render 'new' ,status: :unprocessable_entity#(バリデーションエラー時に返すステータスコード（４２２）にレンダリングする)
+    end
+  end
+
+  def edit
+    @task=Task.find(params[:id])
+  end
+
+  def update
+    @task=Task.find(params[:id])
+    if @task.update(task_params)
+      redirect_to root_path
+    else
+      render 'edit'
     end
   end
 
