@@ -6,6 +6,9 @@
       <%= check_box_tag '', '' %>
       <%= task.title %>
       <%= link_to "[編集]", edit_task_path(task) %>
+      <%= link_to "[削除]", task_path(task), method: :delete,
+      # 下の行は、rails7で使用可能。javascriptのような確認ダイヤルをさせることができる
+      data: {turbo_method: 'delete', turbo_confirm: 'Are you sure?'} %>
     </li>
   <% end %>
 </ul>
